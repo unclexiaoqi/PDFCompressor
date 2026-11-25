@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv-build/
+venv/
+.ruff_cache/
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 构建与测试产物：不进仓库，发布走 Releases
+build/
+dist/
+installer/output/
+_testdata/
+_edge/
+_real/
+*.log

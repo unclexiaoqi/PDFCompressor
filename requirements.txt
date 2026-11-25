@@ -1,0 +1,6 @@
+pymupdf>=1.24
+pikepdf>=9.0
+Pillow>=10.0
+numpy>=1.24
+fonttools>=4.40
+tkinterdnd2>=0.4
