@@ -63,9 +63,12 @@ jobs:
           if-no-files-found: error
 
   # ----------------------------------------------------------------- macOS
-  # macos-14 = Apple Silicon（arm64），macos-13 = Intel（x86_64）
+  # 只在手动触发时跑（workflow_dispatch）：macOS 构建耗时且依赖 runner 环境，
+  # 打 tag 时只自动构建 Windows。Intel 机器可以在本地跑 build-macos.sh。
   macos:
     name: macOS (${{ matrix.arch }})
+    if: github.event_name == 'workflow_dispatch'
+    continue-on-error: true
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -73,8 +76,6 @@ jobs:
         include:
           - os: macos-14
             arch: arm64
-          - os: macos-13
-            arch: x64
     steps:
       - uses: actions/checkout@v4
 
